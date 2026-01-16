@@ -38,9 +38,9 @@ public class Punto {
 	
 	public void setY(int newY) {
 
-		if (newY > 0 && newY != x) {
+		if (newY > 0 && newY != y) {
 
-			x = newY;
+			y = newY;
 
 		}
 
