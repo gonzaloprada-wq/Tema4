@@ -1,4 +1,4 @@
-package EjercicioC;
+package EjercicioD;
 
 public class Rectangulo {
 
@@ -23,6 +23,24 @@ public class Rectangulo {
 	}
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*
 	public void setX1(int newX1){
 		
 		if(newX1>=0&&newX1!=this.x2){
@@ -79,7 +97,7 @@ public class Rectangulo {
 		
 		return y2;
 	}
-	
+	*/
 	
 	
 	

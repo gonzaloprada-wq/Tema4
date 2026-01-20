@@ -10,9 +10,16 @@ public class PrincipalRectangulo {
 		
 		Rectangulo rec2= new Rectangulo(7,9,2,3);
 		
-		int	contador=1;
+		rec1.setX1(1);
+		rec1.setX2(5);
+		rec1.setY1(9);
+		rec1.setY2(0);
 		
-		
+		rec2.setX1(7);
+		rec2.setX2(1);
+		rec2.setY1(10);
+		rec2.setY2(7);
+			
 
 	System.out.print(resultadoConversion(rec1.x1, rec1.x2, rec1.y1, rec1.y2));
 	
