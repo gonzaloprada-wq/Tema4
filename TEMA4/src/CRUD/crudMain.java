@@ -8,38 +8,125 @@ public class crudMain {
 	public static void main(String[] args) {
 
 		gestionAlumnos gestion = new gestionAlumnos();
-		
-		Alumnado alumnoNuevo = new Alumnado();
 
 		Scanner reader = new Scanner(System.in);
 
 		int selector;
 
-		System.out.println("ALUMNOS/AS");
-		System.out.println("===========");
-		System.out.println("\n1. Listado.");
-		System.out.println("2. Nuevo Alumno.");
-		System.out.println("3. Modificar.");
-		System.out.println("4. Borrar.");
-		System.out.println("5. Salir.");
+		do {
+			System.out.println("\nALUMNOS/AS");
+			System.out.println("===========");
+			System.out.println("\n1. Listado.");
+			System.out.println("2. Nuevo Alumno.");
+			System.out.println("3. Modificar.");
+			System.out.println("4. Borrar.");
+			System.out.println("5. Salir.");
 
-		selector = reader.nextInt();
+			selector = reader.nextInt();
 
-		switch (selector) {
+			switch (selector) {
 
-		case 1 -> {gestion.imprimirListado(alumnoNuevo); break;}
+			case 1 -> {
+				Alumnado alumnoNuevo = new Alumnado();
+				gestion.imprimirListado(alumnoNuevo);
+				break;
+			}
 
-		case 2 -> {gestion.agregarAlumno(alumnoNuevo);
-		
-		System.out.println("Ingresa nombre");
-		
-		alumnoNuevo.getNota()=reader.nextDouble();}
-		
-		
-		
-		
-		};
-	}}
+			case 2 -> {
 
-	
+				Alumnado alumnoNuevo = new Alumnado();
 
+				gestion.agregarAlumno(alumnoNuevo);
+
+				
+				
+				System.out.println("Ingresa nombre");
+
+				String newNombre = reader.nextLine();
+
+				
+				newNombre = reader.nextLine();
+
+				alumnoNuevo.setNombre(newNombre);
+
+				double newNota = detectarNotaCorrecta();
+
+				alumnoNuevo.setNota(newNota);
+
+			}
+
+			case 3 -> {
+
+				System.out.println("Ingresa nombre del Alumno: ");
+
+				reader.nextLine();
+
+				String nombreabuscar = reader.nextLine();
+
+				Alumnado alumnoEncotrado = gestion.buscarAlumno(nombreabuscar);
+
+				if (alumnoEncotrado != null) {
+
+					double newNota = detectarNotaCorrecta();
+
+					alumnoEncotrado.setNota(newNota);
+
+					System.out.println("Nota cambiada");
+
+				} else {
+
+					System.out.println("Alumno no encontrado");
+
+				}
+
+			}
+
+			case 4 -> {
+
+				System.out.println("Ingresa nombre del alumno a eliminar: ");
+
+				reader.nextLine();
+
+				String nombreabuscar = reader.nextLine();
+
+				Boolean eliminado = gestion.haSidoEliminado(nombreabuscar);
+
+				if (eliminado) {
+
+					System.out.println("El usuario ha sido eliminado");
+
+				} else {
+
+					System.out.println("El usuario no ha podido eliminarse / no existe");
+
+				}
+
+			}
+
+			}
+			;
+
+		} while (selector != 5);
+
+		System.out.println("Saliendo....");
+		
+		reader.close();
+	}
+
+	public static double detectarNotaCorrecta() {
+		Scanner reader = new Scanner(System.in);
+
+		double newNota;
+
+		do {
+			System.out.println("Ingresa nota 0-10");
+
+			newNota = reader.nextDouble();
+
+		} while (newNota > 10 || newNota < 0);
+
+		return newNota;
+
+	}
+
+}
