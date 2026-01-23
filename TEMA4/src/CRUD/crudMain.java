@@ -34,25 +34,25 @@ public class crudMain {
 
 			case 2 -> {
 
-				Alumnado alumnoNuevo = new Alumnado();
-
-				gestion.agregarAlumno(alumnoNuevo);
-
-				
-				
 				System.out.println("Ingresa nombre");
 
 				String newNombre = reader.nextLine();
 
-				
 				newNombre = reader.nextLine();
+
+				double NewNota = detectarNotaCorrecta();
+
+				Alumnado alumnoNuevo = new Alumnado();
 
 				alumnoNuevo.setNombre(newNombre);
 
-				double newNota = detectarNotaCorrecta();
+				alumnoNuevo.setNota(NewNota);
 
-				alumnoNuevo.setNota(newNota);
+				if (gestion.agregarAlumno(alumnoNuevo)) {
 
+					System.out.println("Agregado con exito!");
+
+				}
 			}
 
 			case 3 -> {
@@ -109,7 +109,7 @@ public class crudMain {
 		} while (selector != 5);
 
 		System.out.println("Saliendo....");
-		
+
 		reader.close();
 	}
 

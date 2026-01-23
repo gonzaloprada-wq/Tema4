@@ -6,9 +6,22 @@ public class gestionAlumnos {
 
 	ArrayList<Alumnado> alumnos = new ArrayList<>();
 
-	public void agregarAlumno(Alumnado alumno) {
+	public boolean agregarAlumno(Alumnado alumno) {
+
+		for (Alumnado a : alumnos) {
+
+			if (a.getNombre().equalsIgnoreCase(alumno.getNombre())) {
+
+				System.out.println("ERROR! Alumno ya ingresado");
+					
+				return false;
+		
+			}
+
+		}
 
 		alumnos.add(alumno);
+		return true;
 	}
 
 	public void imprimirListado(Alumnado alumno) {
