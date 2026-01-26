@@ -72,4 +72,7 @@ public class gestionAlumnos {
 
 	}
 
+	public void imprimirMenu(){}
+	
+	
 }

@@ -1,5 +1,7 @@
 package CRUD2;
 
+import java.util.ArrayList;
+
 class Mercancia {
 
 	private String nombre;
@@ -8,9 +10,11 @@ class Mercancia {
 
 	private double precio;
 
+	static ArrayList<Mercancia> produccion = new ArrayList<>();
+
 	void Mercancia(String nombre, int stock, double precio) {
 
-		this.nombre = nombre;
+		this.nombre = nombre;	
 
 		this.stock = stock;
 
@@ -59,5 +63,76 @@ class Mercancia {
 			this.stock = stock;
 		}
 	};
+
+	public void agregarProducto(Mercancia producto) {
+
+		produccion.add(producto);
+
+	}
+
+	public boolean comprobarRepetidos(String producto) {
+
+		boolean unico = true;
+
+		for (Mercancia a : produccion) {
+
+			if (a.getNombre().equalsIgnoreCase(producto)) {
+
+				unico = false;
+
+			}
+
+		}
+		return unico;
+
+	}
+
+	public String cadenaProductos(Mercancia p) {
+
+		String impresion = ("Nombre de producto: " + p.getNombre() + "||Stock: " + p.getStock() + "||Precio: "
+				+ p.precio + "e");
+
+		return impresion;
+
+	}
+
+	public void imprimirMenu(Mercancia producto) {
+
+		if (produccion.isEmpty()) {
+
+			System.out.println("Esta vacio, añade productos.\n");
+
+		} else {
+
+			for (Mercancia a : produccion) {
+
+				System.out.println(cadenaProductos(a) + "\n");
+
+			}
+
+		}
+
+	}
+
+	public static boolean eliminarProducto(String nombre) {
+
+		boolean eliminado = false;
+
+		for (Mercancia a : produccion) {
+
+			if (a.getNombre().equalsIgnoreCase(nombre)) {
+
+				produccion.remove(a);
+
+				eliminado=true;
+				
+				break;
+			}			
+			
+		}
+
+		return eliminado;
+		
+	}
 
 }
