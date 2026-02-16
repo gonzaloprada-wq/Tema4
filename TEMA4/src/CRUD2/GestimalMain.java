@@ -49,13 +49,57 @@ public class GestimalMain {
 
 			}
 
-			case "d"->{
+			case "e" -> {
+
+				Mercancia producto = new Mercancia();
+
+				System.out.println("Ingresa nombre de prouductos");
+
+				String nombre = reader.nextLine().trim();
+
+				System.out.println("Ingresa nombre de prouductos");
+
+				int cantidad = reader.nextInt();
+
+				if (producto.ingresarStock(nombre, cantidad)) {
+
+					System.out.println("Stock actualizado.");
+
+				} else {
+
+					System.out.println("");
+
+				}
+				;
+
+			}
+
+			case "f" -> {
+								
+
+				Mercancia producto = new Mercancia();
+
+				System.out.println("Ingresa nombre de prouductos");
+
+				String nombre = reader.nextLine().trim();
+
+				System.out.println("Ingresa cantidad");
+
+				int cantidad = reader.nextInt();
 				
-				
-				
+
+					
+				if (producto.retirarStock(nombre, cantidad)) {
+
+					System.out.println("Stock actualizado.\n");
+
+				} else {
+
+					System.out.println("");
+				};
 				
 			}
-			
+
 			}
 
 		} while (!selector.equalsIgnoreCase("g"));
@@ -65,6 +109,9 @@ public class GestimalMain {
 	public static void añadirProducto() {
 
 		Scanner reader = new Scanner(System.in);
+		
+		
+		
 
 		Mercancia producto = new Mercancia();
 
@@ -97,28 +144,26 @@ public class GestimalMain {
 	}
 
 	public static void eliminarObjeto() {
-		
+
 		Scanner reader = new Scanner(System.in);
-		
-		
-		
-		
-		System.out.println("Ingresa el elemento que quieres eliminar: ");{
-			
-		String eliminarElemento=reader.nextLine();
-		
-		if(Mercancia.eliminarProducto(eliminarElemento)) {
-			
-			System.out.println("Eliminado Correctamente\n");
-			
-		}else {
-			
-			System.out.println("No existe/no ha sido eliminado");
-			
+
+		System.out.println("Ingresa el elemento que quieres eliminar: ");
+		{
+
+			String eliminarElemento = reader.nextLine();
+
+			if (Mercancia.eliminarProducto(eliminarElemento)) {
+
+				System.out.println("Eliminado Correctamente\n");
+
+			} else {
+
+				System.out.println("No existe/no ha sido eliminado");
+
+			}
+
 		}
-			
-		}
-		
+
 	}
 
 }

@@ -135,4 +135,48 @@ class Mercancia {
 		
 	}
 
+	public static boolean ingresarStock(String nombre, int cantidad) {
+		
+		boolean ingresado = false;
+		
+		for(Mercancia a: produccion){
+			
+			if(a.getNombre().equalsIgnoreCase(nombre)){
+				
+				a.stock+=cantidad;
+				
+				ingresado=true;
+			}
+			
+		}				
+		
+		return ingresado;
+	}
+	
+	public static boolean retirarStock(String nombre, int cantidad) {
+		
+		boolean ingresado = false;
+		
+		for(Mercancia a: produccion){
+			
+			if(a.getNombre().equalsIgnoreCase(nombre)){
+				if(cantidad>a.stock) 
+				
+				{System.out.println("Hay menos stock del que se quiere eliminar");}else {
+				
+				a.stock-=cantidad;
+						
+				ingresado=true;
+				
+				}
+				
+			}
+			
+		}				
+		
+		return ingresado;
+	}
+	
+	
+	
 }
